@@ -29,5 +29,13 @@ public class HelloCircleControllerTest {
                 .andExpect(content().string("Hello, Circle!"));
 
     }
+    @Test
+    public void shouldReturn200AndGiveTheAnswerToLife() throws Exception {
+        mockMvc.perform(get("/answer"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().string("The answer is 42!"));
+
+    }
 
 }
